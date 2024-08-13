@@ -22,8 +22,6 @@
                         <th>No</th>
                         <th>Nama User</th>
                         <th>Nama Cabang</th>
-                        <th>Akses</th>
-                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -54,21 +52,13 @@
                     },
                     // {data: 'nama_pengurus', name: 'nama_pengurus'},
                     {
-                        data: 'instansi.name',
-                        name: 'instansi.name'
+                        data: 'instansi.nama',
+                        name: 'instansi.nama'
                     },
                     {
-                        data: 'cabang.name',
-                        name: 'cabang.name'
-                    },
-                    // {
-                    //     data: 'akses',
-                    //     name: 'akses'
-                    // },
-                    // {
-                    //     data: 'status',
-                    //     name: 'status'
-                    // },
+                        data: 'nama',
+                        name: 'nama'
+                    }
                 ]
             });
         });

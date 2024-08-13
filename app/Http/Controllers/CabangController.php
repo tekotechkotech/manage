@@ -34,6 +34,8 @@ class CabangController extends Controller
         ->rawColumns(['instansi.nama', 'cabang.nama'])
         ->make(true);
 
+        // dd($a);
+
         return $a;
     }
 }
