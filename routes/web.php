@@ -20,8 +20,10 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 */
 
 Route::get('/', function () {
-    return redirect()->route('dashboard');
+    // return redirect()->route('dashboard');
     // return view('welcome');
+
+    // dd('sini');
 })->middleware('auth');
 
 Route::get('/', function () {
@@ -35,6 +37,14 @@ Route::get('/', function () {
 // Route::get('login',function() {
     
 // })
+
+
+Route::get('/home', function () {
+    return redirect()->route('pengurus');
+    // return view('welcome');
+
+    // dd('sini');
+})->name('home')->middleware('auth');
 
 Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
 
