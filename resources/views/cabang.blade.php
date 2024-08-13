@@ -1,0 +1,76 @@
+@extends('layouts.app')
+
+@section('pengurus', 'active')
+
+@section('content')
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex justify-content-between">
+                <div class="">
+
+                    @if (Auth::check())
+                        <h5 class="card-title fw-semibold mb-0">Data Pengurus</h5>
+                    @endif
+                    <p class="mb-0">This is a data pengurus page </p>
+                </div>
+                <a href="{{ route('pengurus.create') }}" class="btn btn-dark ">Tambah Pengurus</a>
+            </div>
+            <hr>
+            <table class="table table-bordered" id="pengurus-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama User</th>
+                        <th>Nama Cabang</th>
+                        <th>Akses</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+@endsection
+
+@push('script')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#pengurus-table').DataTable({
+                ordering: true,
+                processing: true,
+                serverSide: true,
+                lengthMenu: [5, 10, 25, 50, 75, 100],
+                pageLength: 5,
+                responsive: true,
+                ajax: {
+                    'url': "{{ route('cabang.getCabang') }}"
+                },
+                columns: [{
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex',
+                        orderable: false,
+                        searchable: false
+                    },
+                    // {data: 'nama_pengurus', name: 'nama_pengurus'},
+                    {
+                        data: 'instansi.name',
+                        name: 'instansi.name'
+                    },
+                    {
+                        data: 'cabang.name',
+                        name: 'cabang.name'
+                    },
+                    // {
+                    //     data: 'akses',
+                    //     name: 'akses'
+                    // },
+                    // {
+                    //     data: 'status',
+                    //     name: 'status'
+                    // },
+                ]
+            });
+        });
+    </script>
+@endpush

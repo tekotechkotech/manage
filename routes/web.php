@@ -20,7 +20,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 */
 
 Route::get('/', function () {
-    // return redirect()->route('dashboard');
+    return redirect()->route('dashboard');
     // return view('welcome');
 
     // dd('sini');
@@ -40,18 +40,23 @@ Route::get('/', function () {
 
 
 Route::get('/home', function () {
-    return redirect()->route('pengurus');
-    // return view('welcome');
-
-    // dd('sini');
+    return redirect()->route('dashboard');
 })->name('home')->middleware('auth');
 
 Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
 
 Route::get('/instansi',[InstansiController::class,'index'])->name('instansi');
-Route::get('/cabang',[CabangController::class,'index'])->name('cabang');
-Route::get('/kelas',[KelasController::class,'index'])->name('kelas');
+Route::get('instansi/getInstansi', [InstansiController::class, 'getInstansi'])->name('instansi.getInstansi');
 
+Route::get('/cabang',[CabangController::class,'index'])->name('cabang');
+Route::get('cabang/getCabang', [CabangController::class, 'getCabang'])->name('cabang.getCabang');
+
+Route::get('/kelas',[KelasController::class,'index'])->name('kelas');
+Route::get('kelas/getKelas', [KelasController::class, 'getKelas'])->name('kelas.getKelas');
+
+
+Route::get('/user', [UserController::class, 'user'])->name('user');
+Route::get('user/getUser', [UserController::class, 'getUser'])->name('user.getUser');
 
 Route::get('/pengurus', [UserController::class, 'pengurus'])->name('pengurus');
 Route::get('pengurus/getPengurus', [UserController::class, 'getPengurus'])->name('pengurus.getPengurus');
@@ -60,5 +65,6 @@ Route::get('/pengurus/tambah', [UserController::class, 'pengurus_tambah'])->name
 
 
 Route::get('/pesertadidik', [UserController::class, 'pesertadidik'])->name('pesertadidik');
+Route::get('pengurus/getPesertadidik', [UserController::class, 'getPesertadidik'])->name('pesertadidik.getPesertadidik');
 
 Route::post('/pesertadidik', [UserController::class, 'pesertadidik'])->name('logout');

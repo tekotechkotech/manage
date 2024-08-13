@@ -17,15 +17,16 @@ class PesertaDidik extends Model
 
     protected $fillable = [
         'user_id',
-        'nama',
-        'nis',
-        'tanggal_lahir',
-        'alamat',
+        'kelas_id',
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class, 'kelas_id');
     }
     public function pembayaran()
     {
