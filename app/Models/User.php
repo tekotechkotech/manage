@@ -7,20 +7,28 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, HasUuids;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
+
+     protected $table = 'user'; // Pastikan ini sesuai dengan nama tabel di database
+    // protected $table = 'user';
+    protected $primaryKey = 'id_user';
+    protected $keyType = 'string';
     protected $fillable = [
+        'name',
         'name',
         'email',
         'password',
+        'google_id',
     ];
 
     /**
@@ -42,4 +50,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+    public function pesertaDidik()
+    {
+        return $this->hasOne(PesertaDidik::class, 'user_id');
+    }
+
+    public function pengurus()
+    {
+        return $this->hasOne(Pengurus::class, 'user_id');
+    }
 }
