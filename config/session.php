@@ -2,12 +2,6 @@
 
 use Illuminate\Support\Str;
 
-function domain() {
-    
-    $domain = implode('.', array_slice(explode('.', request()->getHost()), 1));
-
-    return '.'.$domain;
-}
 return [
 
     /*
@@ -161,7 +155,7 @@ return [
     |
     */
 
-    'domain' => env('SESSION_DOMAIN',domain()),
+    'domain' => env('SESSION_DOMAIN'),
 
     /*
     |--------------------------------------------------------------------------
