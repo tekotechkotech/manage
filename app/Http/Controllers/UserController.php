@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pengurus;
 use App\Models\PesertaDidik;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth; 
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
