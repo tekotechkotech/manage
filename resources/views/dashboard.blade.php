@@ -7,6 +7,8 @@
     <div class="card-body">
         @if(Auth::check())
         <h5 class="card-title fw-semibold mb-4">Welcome, {{ Auth::user()->name }}</h5>
+        @else
+        <h5 class="card-title fw-semibold mb-4">Kok ga Login?</h5>
         @endif
         <p class="mb-0">This is a dashboard page </p>
     </div>

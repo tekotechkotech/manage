@@ -29,7 +29,8 @@ Route::get('/', function () {
 Route::get('/', function () {
     $instansi = app('instansi');
     // dd($instansi);
-    return redirect()->to('https://login.' . $instansi->web);
+    return redirect()->route('dashboard');
+    // return redirect()->to('https://login.' . $instansi->web);
     // return view('welcome');
 })->middleware('guest');
 
