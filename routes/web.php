@@ -68,4 +68,4 @@ Route::get('/pengurus/tambah', [UserController::class, 'pengurus_tambah'])->name
 Route::get('/pesertadidik', [UserController::class, 'pesertadidik'])->name('pesertadidik');
 Route::get('pengurus/getPesertadidik', [UserController::class, 'getPesertadidik'])->name('pesertadidik.getPesertadidik');
 
-Route::post('/pesertadidik', [UserController::class, 'pesertadidik'])->name('logout');
+Route::post('/logout', [UserController::class, 'logout'])->name('logout');
