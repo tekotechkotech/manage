@@ -56,8 +56,9 @@ Route::get('/kelas',[KelasController::class,'index'])->name('kelas');
 Route::get('kelas/getKelas', [KelasController::class, 'getKelas'])->name('kelas.getKelas');
 
 
-Route::get('/user', [UserController::class, 'user'])->name('user');
+Route::get('/pengguna', [UserController::class, 'user'])->name('user');
 Route::get('user/getUser', [UserController::class, 'getUser'])->name('user.getUser');
+Route::get('/pengguna/{id}', [UserController::class, 'user_detail'])->name('user.detail');
 
 Route::get('/pengurus', [UserController::class, 'pengurus'])->name('pengurus');
 Route::get('pengurus/getPengurus', [UserController::class, 'getPengurus'])->name('pengurus.getPengurus');

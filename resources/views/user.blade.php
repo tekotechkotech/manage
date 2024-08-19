@@ -16,13 +16,14 @@
                 <a href="{{ route('pengurus.create') }}" class="btn btn-dark ">Tambah Pengurus</a>
             </div>
             <hr>
-            <table class="table table-bordered" id="pengurus-table">
+            <table class="table table-hovers" id="pengurus-table">
                 <thead>
                     <tr>
                         <th>No</th>
                             <th>Nama User</th>
                             <th>Nama Kelas</th>
                             <th>Nama Cabang</th>
+                            <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,6 +49,12 @@
                 { data: 'user.name', name: 'user.name' },
                 { data: 'kelas.name', name: 'kelas.name' },
                 { data: 'cabang.name', name: 'cabang.name' },
+            {
+                data: 'action', // Kolom baru untuk tombol
+                name: 'action',
+                orderable: false,
+                searchable: false
+            }
             ],
             order: [[1, 'asc']],
             });
