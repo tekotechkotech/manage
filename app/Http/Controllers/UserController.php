@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pengurus;
 use App\Models\PesertaDidik;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth; 
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
@@ -140,4 +141,14 @@ class UserController extends Controller
 
         return $a;
     }
+
+    public function logout(Request $request)     {         
+		Auth::logout();         
+		
+		$request->session()->invalidate();         
+		
+		$request->session()->regenerateToken();          
+		
+		return redirect('/');     
+	} 
 }
